@@ -16,3 +16,4 @@ function PostCard(props: ICardProps) {
 }
 
 export default PostCard;
+
