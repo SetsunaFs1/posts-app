@@ -2,7 +2,7 @@ import { useState, type JSX } from "react";
 import { ThemeContext } from "./useTheme";
 import type { ThemeType } from "./themeContextType";
 
-interface IContextProps {
+type IContextProps = {
   children: JSX.Element;
 }
 export default function ThemeProvider(props: IContextProps) {

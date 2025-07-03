@@ -1,4 +1,4 @@
-export interface ICardProps {
+export type ICardProps = {
   post: {
     id: string;
     title: string;
