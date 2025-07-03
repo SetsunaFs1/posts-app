@@ -1,14 +1,13 @@
-import "./App.css";
-import PostList from "../widgets/PostList/PostList";
+import styles from "./App.module.css";
+import { useTheme } from "../shared/lib/theme/useTheme";
+import MainLayout from "../shared/layouts/MainLayout";
 
-function App() {
+export default function App() {
+  const { theme } = useTheme();
+
   return (
-    <div>
-      <h1>Posts</h1>
-      <PostList />
+    <div className={theme === "light" ? `${styles.light}` : `${styles.dark}`}>
+      <MainLayout />
     </div>
   );
 }
-
-export default App;
-

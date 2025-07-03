@@ -1,5 +1,5 @@
-import type { ICardProps } from "../../../utils/postCard";
 import styles from "./PostCard.module.css";
+import type { ICardProps } from "./PostCardType";
 
 function PostCard(props: ICardProps) {
   const { id, title, content, author, date } = props.post;

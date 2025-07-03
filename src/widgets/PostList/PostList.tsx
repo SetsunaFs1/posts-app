@@ -1,20 +1,13 @@
 import PostCard from "../../entities/post/ui/PostCard";
-import { posts } from "../../utils/posts";
-import styles from './PostList.module.css';
+import { posts } from "../../mocks/posts";
 
-function PostList() {
+export default function PostList() {
   return (
-    <ul className={styles.list}>
+    <>
+      <h1>Posts</h1>
       {posts.map((post) => {
-        return (
-          <li key={post.id}>
-            <PostCard post={post} />
-          </li>
-        );
+        return <PostCard key={post.id} post={post} />;
       })}
-    </ul>
+    </>
   );
 }
-
-export default PostList;
-
