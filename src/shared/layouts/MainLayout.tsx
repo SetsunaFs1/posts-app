@@ -1,12 +1,12 @@
 import Footer from "../../widgets/LayoutFooter/Footer";
 import Header from "../../widgets/LayoutHeader/Header";
-import PostList from "../../widgets/PostList/PostList";
+import type { MainLayoutProps } from "./MainLayoutType";
 
-export default function MainLayout() {
+export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <Header />
-      <PostList />
+      <main>{children}</main>
       <Footer />
     </>
   );
