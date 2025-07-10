@@ -16,7 +16,7 @@
   position: relative;
   background: rgba(255, 255, 255, 1);
   border-radius: 5px;
-  padding: 10px 40px 20px 20px;
+  padding: 20px 40px 10px 20px;
   max-width: 600px;
   margin: 40px;
 }
@@ -44,34 +44,10 @@
   background: none;
 }
 
-.closeButtonLight {
-  color: rgb(0, 0, 0, 0.6);
-}
-
-.closeButtonDark {
-  color: rgb(235, 195, 64);
-}
-
-.closeButtonLight:hover {
-  color: rgb(0, 0, 0, 1);
-}
-
-.closeButtonDark:hover {
-  color: rgb(188, 144, 0);
-}
-
 .title {
   margin: 0 0 10px;
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
   line-height: 20px;
-}
-
-.titleLight {
-  color: black;
-}
-
-.titleDark {
-  color: #ffffff;
 }

@@ -1,34 +1,64 @@
 .post {
-    border: 1px solid gray;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 16px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    /* text-align: center; */
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .titleLayout {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
-    font-size: 24px;
-    margin: 0 0 8px;
+  font-size: 24px;
+  margin: 0 0 8px;
 }
 
 .content {
-    font-size: 16px;
-    margin: 0 0 16px;
+  font-size: 16px;
+  margin: 0 0 16px;
 }
 
 .description {
-    font-size: 14px;
-    color: gray;
+  font-size: 14px;
+  color: gray;
 }
 
 .author {
-    margin-right: 10px;
+  margin-right: 10px;
+}
+
+.DeleteButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  border: 1px solid rgb(235, 195, 64);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.buttonLight {
+  background-color: white;
+  color: black;
+}
+
+.buttonDark {
+  background-color: #242424;
+  color: white;
+}
+
+.button:hover {
+  background-color: rgb(235, 195, 64);
 }

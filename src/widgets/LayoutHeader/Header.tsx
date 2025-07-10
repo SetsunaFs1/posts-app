@@ -6,6 +6,7 @@ export default function Header() {
   return (
     <div className={styles.flexContainer}>
       <ButtonModalInfo />
+      <h1>Posts</h1>
       <ThemeSwitcher />
     </div>
   );
