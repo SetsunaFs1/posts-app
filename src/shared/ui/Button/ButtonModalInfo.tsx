@@ -1,10 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type MouseEventHandler,
-} from "react";
+import { useEffect, useRef, useState, type MouseEventHandler } from "react";
 import { createPortal } from "react-dom";
 import styles from "./ButtonModalInfo.module.css";
 import { useTheme } from "../../lib/theme/useTheme";
@@ -18,8 +12,6 @@ export default function ButtonModalInfo() {
   const openModal = () => setIsModalOpen(true);
 
   const closeModal = () => setIsModalOpen(false);
-
-
 
   useEffect(() => {
     const handleWrapperClick = (event: MouseEvent) => {
@@ -44,8 +36,6 @@ export default function ButtonModalInfo() {
     };
   }, [isModalOpen]);
 
-
-
   useEffect(() => {
     const handleWrapperClick = () => {};
     const handleEscapePress = (event: KeyboardEvent) => {
@@ -63,10 +53,11 @@ export default function ButtonModalInfo() {
     };
   }, [isModalOpen]);
 
-  const handleClose: MouseEventHandler<HTMLDivElement | HTMLButtonElement> =
-    useCallback(() => {
-      closeModal();
-    }, []);
+  const handleClose: MouseEventHandler<
+    HTMLDivElement | HTMLButtonElement
+  > = () => {
+    closeModal();
+  };
 
   return (
     <>
