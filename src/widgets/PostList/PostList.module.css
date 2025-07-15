@@ -1,0 +1,41 @@
+.postBox {
+    margin-bottom: 35px;
+}
+
+.link {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.linkLight {
+    color: black;
+}
+
+.linkDark {
+    color: white;
+}
+
+.button {
+    border-radius: 5px;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid rgb(235, 195, 64);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.buttonLight {
+    background-color: white;
+    color: black;
+}
+
+.buttonDark {
+    background-color: #242424;
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(235, 195, 64);
+}

@@ -1,6 +1,6 @@
 export type CommentType = {
-  id: string;
-  content: string;
-  author: string;
-  date: string;
+    id: string;
+    content: string;
+    author: string;
+    date: string;
 };
