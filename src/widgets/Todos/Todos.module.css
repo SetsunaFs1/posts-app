@@ -1,0 +1,15 @@
+.box {
+    padding: 0;
+}
+
+.listBox {
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.listItem {
+    border-bottom: none;
+}

@@ -1,15 +1,34 @@
 import { useParams } from 'react-router-dom';
-import { todos } from '../../mocks/todos';
+import { useGetTodosQuery } from '../../entities/todos/api/todosApi';
+import styles from './Todos.module.css';
+
+type TodoType = {
+    userId: number;
+    id: number;
+    title: string;
+    completed: boolean;
+};
 
 export default function Todos() {
     const { id } = useParams();
-    const filterTodos = todos.filter((todo) => todo.authorId === id);
+    const { data: todos, isLoading } = useGetTodosQuery(Number(id));
+
+    if (isLoading) return <p>Загрузка...</p>;
 
     return (
         <>
-            <ul>
-                {filterTodos.map((todo) => {
-                    return <li key={todo.id}>{todo.content}</li>;
+            <ul className={styles.box}>
+                {todos.map((todo: TodoType) => {
+                    return (
+                        <li key={todo.id} className={styles.listBox}>
+                            <p>{todo.title}</p>
+                            <input
+                                type="checkbox"
+                                checked={todo.completed}
+                                onChange={() => {}}
+                            />
+                        </li>
+                    );
                 })}
             </ul>
         </>

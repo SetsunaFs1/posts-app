@@ -16,7 +16,7 @@ export default function UserTabs() {
     };
 
     return (
-        <nav>
+        <nav className={styles.nav}>
             <div>
                 <NavLink
                     to={`/users/${id}/posts`}

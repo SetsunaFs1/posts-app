@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
-import type { PostType } from '../../../entities/post/ui/PostCardType';
 import PostList, { type IProps } from '../../../widgets/PostList/PostList';
 import styles from './withLoading.module.css';
+import type { PostType } from '../../../entities/post/model/slice/postSlice';
 
 type HocProps = {
     isLoading: boolean;

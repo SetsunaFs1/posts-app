@@ -2,22 +2,26 @@ import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import Footer from '../../../widgets/LayoutFooter/Footer';
 import Header from '../../../widgets/LayoutHeader/Header';
 import UserTabs from '../../../widgets/UserTabs/UserTabs';
-import { users } from '../../../mocks/users';
 import { useTheme } from '../../lib/theme/useTheme';
 import styles from './UsersLayout.module.css';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../../app/providers/store';
+import { selectUserById } from '../../../entities/user/model/slice/userSlice';
 
 export default function UsersLayout() {
     const { theme } = useTheme();
     const navigate = useNavigate();
     const { id } = useParams();
-    const user = users.find((item) => item.id === id);
+    const currentUser = useSelector((state: RootState) =>
+        selectUserById(state, Number(id))
+    );
 
     return (
         <>
             <Header />
-            {user ? (
+            {currentUser ? (
                 <>
-                    <h3>Страница пользователя - {user.name}</h3>
+                    <h3>Страница пользователя - {currentUser.name}</h3>
                     <UserTabs />
                     <Outlet />
                     <button

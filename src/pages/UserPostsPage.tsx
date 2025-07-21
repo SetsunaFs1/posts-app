@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { usePosts } from '../features/PostList/model/hooks/usePosts';
 import { PostListWithLoading } from '../shared/lib/hoc/withLoading';
+import { useGetPostsByUserQuery } from '../entities/post/api/postsApi';
 
 export default function UserPostPage() {
     const { id } = useParams();
-    const { posts, isLoading } = usePosts(id);
+    const { data: posts, isLoading } = useGetPostsByUserQuery(Number(id));
 
     return (
         <>

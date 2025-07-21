@@ -1,40 +1,58 @@
-import { useState } from 'react';
-import Commentlist from '../../../widgets/CommentList/ui/CommentList';
+import { useEffect, useState } from 'react';
+import Commentslist from '../../../widgets/CommentsList/ui/CommentsList';
 import styles from './PostCard.module.css';
-import type { ICardProps } from './PostCardType';
 import { useTheme } from '../../../shared/lib/theme/useTheme';
 import { Link } from 'react-router-dom';
+import type { PostType } from '../model/slice/postSlice';
+import { useSelector } from 'react-redux';
+import {
+    selectUserById,
+    type UserType,
+} from '../../user/model/slice/userSlice';
+import type { RootState } from '../../../app/providers/store';
 
-export default function PostCard(props: ICardProps) {
+type CardProps = {
+    post: PostType;
+};
+
+export default function PostCard(props: CardProps) {
     const { theme } = useTheme();
     const { post } = props;
-    const { id, title, content, author, authorId, date } = post;
+    const { userId, id, title, body } = post;
+
+    const currentUser = useSelector((state: RootState) =>
+        selectUserById(state, userId)
+    );
     const [toggleComments, setToggleComments] = useState(false);
+    const [user, setUser] = useState<UserType | null>(null);
+    useEffect(() => {
+        if (currentUser) setUser(currentUser);
+    }, [currentUser]);
 
     function handleToggleComments() {
         setToggleComments((prev) => !prev);
     }
 
     return (
-        <div id={id} className={styles.post}>
+        <div id={String(id)} className={styles.post}>
             <div className={styles.titleLayout}>
                 <h2 className={styles.title}>{title}</h2>
             </div>
-            <p className={styles.content}>{content}</p>
+            <p className={styles.content}>{body}</p>
             <div className={styles.description}>
-                <span className={styles.author}>
+                <span>
                     <Link
-                        to={`/users/${authorId}`}
+                        to={`/users/${userId}`}
                         className={`${
                             theme === 'light'
                                 ? `${styles.linkLight}`
                                 : `${styles.linkDark}`
                         } ${styles.link}`}
                     >
-                        Автор: {author}
+                        Автор: {user?.username}
                     </Link>
                 </span>
-                <span className={styles.date}>{date}</span>
+                <span>{user?.email}</span>
             </div>
             <button
                 onClick={handleToggleComments}
@@ -46,10 +64,7 @@ export default function PostCard(props: ICardProps) {
             >
                 {toggleComments ? 'Закрыть комментарии' : 'Открыть комментарии'}
             </button>
-            <Commentlist
-                comments={post.comments}
-                toggleComments={toggleComments}
-            />
+            <Commentslist postId={id} toggleComments={toggleComments} />
         </div>
     );
 }

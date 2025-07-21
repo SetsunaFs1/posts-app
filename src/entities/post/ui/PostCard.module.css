@@ -26,10 +26,9 @@
 .description {
     font-size: 14px;
     color: gray;
-}
-
-.author {
     margin-right: 10px;
+    display: flex;
+    gap: 5px;
 }
 
 .DeleteButton {

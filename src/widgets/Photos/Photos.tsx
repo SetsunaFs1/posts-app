@@ -1,21 +1,35 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { photos } from '../../mocks/photos';
 import { useTheme } from '../../shared/lib/theme/useTheme';
 import styles from './Photos.module.css';
+import { useGetPhotosQuery } from '../../entities/albums/api/albumsApi';
+
+type PhotoType = {
+    albumId: number;
+    id: number;
+    title: string;
+    url: string;
+    thumbnailUrl: string;
+};
 
 export default function Photos() {
     const { theme } = useTheme();
     const navigate = useNavigate();
     const { id } = useParams();
-    const filterPhotos = photos.filter((item) => item.authorId === id);
+    const { data: photos, isLoading } = useGetPhotosQuery(Number(id));
+
+    if (isLoading) return <p>Загрузка...</p>;
 
     return (
         <div className={styles.box}>
             <div className={styles.photos}>
-                {filterPhotos.map((photo) => {
+                {photos.map((photo: PhotoType) => {
                     return (
-                        <div key={photo.id} className={styles.photoElement}>
-                            {photo.title}
+                        <div key={photo.id} className={styles.flex}>
+                            <img
+                                id={String(photo.id)}
+                                src={photo.url}
+                                alt={photo.title}
+                            />
                         </div>
                     );
                 })}

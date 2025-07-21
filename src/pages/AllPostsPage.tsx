@@ -1,8 +1,8 @@
 import { PostListWithLoading } from '../shared/lib/hoc/withLoading';
-import { usePosts } from '../features/PostList/model/hooks/usePosts';
+import { useAllPosts } from '../features/PostList/model/hooks/useAllPosts';
 
 export default function AllPostsPage() {
-    const { posts, isLoading } = usePosts(undefined);
+    const { posts, isLoading } = useAllPosts();
 
     return <PostListWithLoading isLoading={isLoading} posts={posts ?? []} />;
 }
