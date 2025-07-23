@@ -7,7 +7,8 @@ export default function Photos() {
     const { theme } = useTheme();
     const navigate = useNavigate();
     const { id } = useParams();
-    const filterPhotos = photos.filter((item) => item.authorId === id);
+    const filterPhotos = photos.filter((item) => item.albumId === id);
+    console.log(filterPhotos);
 
     return (
         <div className={styles.box}>
