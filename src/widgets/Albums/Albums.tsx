@@ -23,7 +23,7 @@ export default function Albums() {
                     return (
                         <div key={album.id} className={styles.flex}>
                             <Link
-                                to={`/albums/${id}/photos`}
+                                to={`/albums/${album.id}/photos`}
                                 className={`${
                                     theme === 'light'
                                         ? `${styles.linkLight}`
@@ -42,3 +42,28 @@ export default function Albums() {
         </div>
     );
 }
+
+//  return (
+//         <div className={styles.box}>
+//             <div className={styles.photos}>
+//                 {filterPhotos.map((photo) => {
+//                     return (
+//                         <div key={photo.id} className={styles.photoElement}>
+//                             {photo.title}
+//                         </div>
+//                     );
+//                 })}
+//             </div>
+//             <button
+//                 onClick={() => navigate(-1)}
+//                 className={`${
+//                     theme === 'light'
+//                         ? `${styles.buttonLight}`
+//                         : `${styles.buttonDark}`
+//                 } ${styles.button}`}
+//             >
+//                 Назад
+//             </button>
+//         </div>
+//     );
+// }
