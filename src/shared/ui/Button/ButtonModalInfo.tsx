@@ -9,6 +9,9 @@ import { createPortal } from 'react-dom';
 import styles from './ButtonModalInfo.module.css';
 import { useTheme } from '../../lib/theme/useTheme';
 import { Modal } from '../Modal/Modal';
+import { ModalHeader } from '../Modal/ModalHeader';
+import { ModalBody } from '../Modal/ModalBody';
+import { ModalFooter } from '../Modal/ModalFooter';
 
 export default function ButtonModalInfo() {
     const { theme } = useTheme();
@@ -79,12 +82,12 @@ export default function ButtonModalInfo() {
             {isModalOpen &&
                 createPortal(
                     <Modal ref={rootRef}>
-                        <Modal.Header>Описание проекта-приложения</Modal.Header>
-                        <Modal.Body>
+                        <ModalHeader>Описание проекта-приложения</ModalHeader>
+                        <ModalBody>
                             Это приложение для просмотра постов и комментариев,
                             реализованное с помощью React + TypeScript.
-                        </Modal.Body>
-                        <Modal.Footer>
+                        </ModalBody>
+                        <ModalFooter>
                             <button
                                 type="button"
                                 className={`${
@@ -96,7 +99,7 @@ export default function ButtonModalInfo() {
                             >
                                 Закрыть
                             </button>
-                        </Modal.Footer>
+                        </ModalFooter>
                     </Modal>,
                     document.getElementById('modal-root')!
                 )}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import PostCard from '../../entities/post/ui/PostCard';
 import PostLengthFilter from '../../features/PostLengthFilter/ui/PostLengthFilter';
 import { filterByLength } from '../../features/PostLengthFilter/lib/filterByLength';
@@ -18,9 +18,8 @@ export default function PostList(props: IProps) {
         min: number;
         max: number;
     } | null>(null);
-    const filteredPosts = useMemo(
-        () => posts.filter((post) => filterByLength(post, filterData)),
-        [posts, filterData]
+    const filteredPosts = posts.filter((post) =>
+        filterByLength(post, filterData)
     );
 
     return (

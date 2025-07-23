@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import PostList, { type IProps } from '../../../widgets/PostList/PostList';
+import { type IProps } from '../../../widgets/PostList/PostList';
 import styles from './withLoading.module.css';
 import type { PostType } from '../../../entities/post/model/slice/postSlice';
 
@@ -8,11 +8,9 @@ type HocProps = {
     posts: PostType[];
 };
 
-function withLoading(WrappedComponent: (props: IProps) => JSX.Element) {
+export function withLoading(WrappedComponent: (props: IProps) => JSX.Element) {
     return function ComponentWithLoading({ isLoading, ...posts }: HocProps) {
         if (!isLoading) return <WrappedComponent {...posts} />;
         return <div className={styles.loader}>Загрузка...</div>;
     };
 }
-
-export const PostListWithLoading = withLoading(PostList);
