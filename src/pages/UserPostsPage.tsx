@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { PostListWithLoading } from '../shared/lib/hoc/withLoading';
 import { useGetPostsByUserQuery } from '../entities/post/api/postsApi';
+import { PostListWithLoading } from '../shared/lib/hoc/PostListWithLoading';
 
 export default function UserPostPage() {
     const { id } = useParams();

@@ -25,14 +25,14 @@ export const Modal = (props: ModalProps) => {
     );
 };
 
-Modal.Header = ({ children }: { children: ReactNode }) => {
-    return <p className={styles.title}>{children}</p>;
-};
+// Modal.Header = ({ children }: { children: ReactNode }) => {
+//     return <p className={styles.title}>{children}</p>;
+// };
 
-Modal.Body = ({ children }: { children: ReactNode }) => {
-    return <p>{children}</p>;
-};
+// Modal.Body = ({ children }: { children: ReactNode }) => {
+//     return <p>{children}</p>;
+// };
 
-Modal.Footer = ({ children }: { children: ReactNode }) => {
-    return <div>{children}</div>;
-};
+// Modal.Footer = ({ children }: { children: ReactNode }) => {
+//     return <div>{children}</div>;
+// };
