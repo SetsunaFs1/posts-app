@@ -12,7 +12,7 @@ export const albumsApi = createApi({
             providesTags: ['Albums'],
         }),
         getPhotos: builder.query({
-            query: (userId: number) => `/albums/${userId}/photos`,
+            query: (albumId: number) => `/albums/${albumId}/photos`,
             providesTags: ['Albums'],
         }),
     }),
