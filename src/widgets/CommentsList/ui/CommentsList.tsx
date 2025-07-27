@@ -1,6 +1,7 @@
 import { useGetCommentsQuery } from '../../../entities/comments/api/commentsApi';
+import type { CommentType } from '../../../entities/comments/model/commentType';
 import Comments from '../../../entities/comments/ui/Comments';
-import type { CommentsType } from '../../../entities/comments/ui/CommentsType';
+import { ItemList } from '../../../shared/ui/ItemList/ItemList';
 
 export type IProps = {
     postId: number;
@@ -11,15 +12,17 @@ export default function Commentlist(props: IProps) {
     const { postId, toggleComments } = props;
     const { data: comments } = useGetCommentsQuery(String(postId));
 
+    const renderComments = (comment: CommentType) => {
+        return <Comments key={comment.id} comment={comment} />;
+    };
+
     return (
         <>
             {toggleComments &&
                 (comments.length === 0 ? (
                     <div>Нет комментариев</div>
                 ) : (
-                    comments.map((comment: CommentsType) => {
-                        return <Comments key={comment.id} comment={comment} />;
-                    })
+                    <ItemList items={comments} renderItem={renderComments} />
                 ))}
         </>
     );

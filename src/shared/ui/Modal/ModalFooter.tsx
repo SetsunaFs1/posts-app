@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
-export const ModalFooter = ({ children }: { children: ReactNode }) => {
+export const ModalFooter = (props: PropsWithChildren) => {
+    const { children } = props;
     return <div>{children}</div>;
 };

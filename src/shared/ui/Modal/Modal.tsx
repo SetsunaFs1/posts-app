@@ -1,13 +1,12 @@
-import { type ReactNode } from 'react';
+import { type PropsWithChildren } from 'react';
 import styles from './Modal.module.css';
 import { useTheme } from '../../lib/theme/useTheme';
 
 type ModalProps = {
     ref: React.RefObject<HTMLDivElement | null>;
-    children: ReactNode;
 };
 
-export const Modal = (props: ModalProps) => {
+export const Modal = (props: PropsWithChildren<ModalProps>) => {
     const { ref, children } = props;
     const { theme } = useTheme();
     return (

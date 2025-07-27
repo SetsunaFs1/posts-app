@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
 
-export const ModalBody = ({ children }: { children: ReactNode }) => {
+export const ModalBody = (props: PropsWithChildren) => {
+    const { children } = props;
     return <p>{children}</p>;
 };

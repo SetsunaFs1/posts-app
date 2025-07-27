@@ -1,11 +1,11 @@
-import type { CommentsType } from './CommentsType';
+import type { CommentType } from '../model/commentType';
 import styles from './Comments.module.css';
 
-type IProps = {
-    comment: CommentsType;
+type CommentsProps = {
+    comment: CommentType;
 };
 
-export default function Comments(props: IProps) {
+export default function Comments(props: CommentsProps) {
     const { comment } = props;
 
     return (

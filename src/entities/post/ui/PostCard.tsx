@@ -3,13 +3,11 @@ import Commentslist from '../../../widgets/CommentsList/ui/CommentsList';
 import styles from './PostCard.module.css';
 import { useTheme } from '../../../shared/lib/theme/useTheme';
 import { Link } from 'react-router-dom';
-import type { PostType } from '../model/slice/postSlice';
 import { useSelector } from 'react-redux';
-import {
-    selectUserById,
-    type UserType,
-} from '../../user/model/slice/userSlice';
+import { selectUserById } from '../../user/model/slice/userSlice';
 import type { RootState } from '../../../app/providers/store';
+import type { PostType } from '../model/slice/postTypes';
+import type { UserType } from '../../user/model/slice/userType';
 
 type CardProps = {
     post: PostType;

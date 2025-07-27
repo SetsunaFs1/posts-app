@@ -2,14 +2,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTheme } from '../../shared/lib/theme/useTheme';
 import styles from './Photos.module.css';
 import { useGetPhotosQuery } from '../../entities/albums/api/albumsApi';
-
-type PhotoType = {
-    albumId: number;
-    id: number;
-    title: string;
-    url: string;
-    thumbnailUrl: string;
-};
+import type { PhotoType } from '../../entities/photos/model/photoType';
+import { ItemList } from '../../shared/ui/ItemList/ItemList';
 
 export default function Photos() {
     const { theme } = useTheme();
@@ -19,20 +13,18 @@ export default function Photos() {
 
     if (isLoading) return <p>Загрузка...</p>;
 
+    const renderPhotos = (photo: PhotoType) => {
+        return (
+            <div key={photo.id} className={styles.flex}>
+                <img id={String(photo.id)} src={photo.url} alt={photo.title} />
+            </div>
+        );
+    };
+
     return (
         <div className={styles.box}>
             <div className={styles.photos}>
-                {photos.map((photo: PhotoType) => {
-                    return (
-                        <div key={photo.id} className={styles.flex}>
-                            <img
-                                id={String(photo.id)}
-                                src={photo.url}
-                                alt={photo.title}
-                            />
-                        </div>
-                    );
-                })}
+                <ItemList items={photos} renderItem={renderPhotos} />
             </div>
             <button
                 onClick={() => navigate(-1)}

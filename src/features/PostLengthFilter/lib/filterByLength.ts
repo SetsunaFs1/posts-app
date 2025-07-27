@@ -1,4 +1,4 @@
-import type { PostType } from '../../../entities/post/ui/PostCardType';
+import type { PostType } from '../../../entities/post/model/slice/postTypes';
 
 export const filterByLength = (
     post: PostType,

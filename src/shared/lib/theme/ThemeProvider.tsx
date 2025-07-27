@@ -1,16 +1,14 @@
-import { useState, type JSX } from 'react';
+import { useState, type PropsWithChildren } from 'react';
 import { ThemeContext } from './useTheme';
 import type { ThemeType } from './themeContextType';
 
-type IContextProps = {
-    children: JSX.Element;
-};
-export default function ThemeProvider(props: IContextProps) {
+export default function ThemeProvider(props: PropsWithChildren) {
+    const { children } = props;
     const [theme, setTheme] = useState<ThemeType>('light');
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>
-            {props.children}
+            {children}
         </ThemeContext.Provider>
     );
 }
