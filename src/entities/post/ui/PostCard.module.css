@@ -2,8 +2,15 @@
     border: 1px solid gray;
     border-radius: 8px;
     padding: 16px;
-    margin: 16px 0;
+    margin: 16px 0 5px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.titleLayout {
+    display: flex;
+    justify-content: space-between;
 }
 
 .title {
@@ -19,8 +26,52 @@
 .description {
     font-size: 14px;
     color: gray;
+    margin-right: 10px;
+    display: flex;
+    gap: 5px;
 }
 
-.author {
-    margin-right: 10px;
+.DeleteButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button {
+    border-radius: 5px;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid rgb(235, 195, 64);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.buttonLight {
+    background-color: white;
+    color: black;
+}
+
+.buttonDark {
+    background-color: #242424;
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(235, 195, 64);
+}
+
+.link {
+    color: gray;
+    font-weight: normal;
+    transition: color 0.2s ease-in-out;
+}
+
+.linkLight:hover {
+    color: black;
+}
+
+.linkDark:hover {
+    color: white;
 }

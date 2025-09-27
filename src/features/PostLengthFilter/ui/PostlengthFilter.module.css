@@ -1,0 +1,53 @@
+.title {
+    margin-bottom: 0;
+}
+
+.container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.placeholder {
+    margin: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.error {
+    font-size: 12px;
+    margin: 0 0 5px 0;
+    color: red;
+}
+
+.input {
+    max-width: 100px;
+}
+
+.button {
+    margin-bottom: 15px;
+    width: 108px;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid rgb(235, 195, 64);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.buttonLight {
+    background-color: white;
+    color: black;
+}
+
+.buttonDark {
+    background-color: #242424;
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(235, 195, 64);
+}

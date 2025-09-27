@@ -1,0 +1,40 @@
+.button {
+    border-radius: 5px;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid rgb(235, 195, 64);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.buttonLight {
+    background-color: white;
+    color: black;
+}
+
+.buttonDark {
+    background-color: #242424;
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(235, 195, 64);
+}
+
+.box {
+    margin-top: 20px;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(6, 150px);
+    grid-template-rows: repeat(6, 150px);
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
